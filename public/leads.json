@@ -1,0 +1,84 @@
+{
+  "leads": [
+    {
+      "id": 1,
+      "type": "feria",
+      "name": "Feria Internacional de Bruselas",
+      "lat": 50.8503,
+      "lon": 4.3517,
+      "sector": "General",
+      "link": "https://www.brussels-expo.be",
+      "description": "Principal feria internacional de Bélgica con más de 2000 expositores anuales"
+    },
+    {
+      "id": 2,
+      "type": "importador",
+      "name": "Belgian Import Solutions",
+      "lat": 50.8503,
+      "lon": 4.3517,
+      "sector": "Tecnología",
+      "link": "https://www.belgianimport.be",
+      "description": "Importador especializado en productos tecnológicos y electrónicos"
+    },
+    {
+      "id": 3,
+      "type": "ice",
+      "name": "Oficina ICE Castilla y León - Bruselas",
+      "lat": 50.8503,
+      "lon": 4.3517,
+      "sector": "General",
+      "link": "https://www.ice.es",
+      "description": "Oficina comercial del ICE en Bruselas para apoyo a empresas españolas"
+    },
+    {
+      "id": 4,
+      "type": "distribuidor",
+      "name": "Flanders Distribution Center",
+      "lat": 51.0500,
+      "lon": 3.7167,
+      "sector": "Logística",
+      "link": "https://www.flanders-distribution.be",
+      "description": "Centro de distribución principal en la región de Flandes"
+    },
+    {
+      "id": 5,
+      "type": "feria",
+      "name": "Feria de Antwerp",
+      "lat": 51.2194,
+      "lon": 4.4025,
+      "sector": "Marítimo",
+      "link": "https://www.antwerp-fair.be",
+      "description": "Feria especializada en comercio marítimo y logística portuaria"
+    },
+    {
+      "id": 6,
+      "type": "importador",
+      "name": "Wallonia Trading Co.",
+      "lat": 50.4667,
+      "lon": 4.8667,
+      "sector": "Alimentación",
+      "link": "https://www.wallonia-trading.be",
+      "description": "Importador de productos alimentarios españoles en Valonia"
+    },
+    {
+      "id": 7,
+      "type": "distribuidor",
+      "name": "Brussels Logistics Hub",
+      "lat": 50.8503,
+      "lon": 4.3517,
+      "sector": "Logística",
+      "link": "https://www.brussels-logistics.be",
+      "description": "Hub logístico estratégico en el corazón de Europa"
+    },
+    {
+      "id": 8,
+      "type": "feria",
+      "name": "Feria de Gante",
+      "lat": 51.0500,
+      "lon": 3.7167,
+      "sector": "Textil",
+      "link": "https://www.ghent-fair.be",
+            "description": "Feria especializada en industria textil y moda"
+    }
+  ]
+} 

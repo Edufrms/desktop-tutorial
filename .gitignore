@@ -1,0 +1,21 @@
+# Dependencias
+node_modules/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Logs y archivos temporales de desarrollo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# No ignores los archivos de la app:
+!public/
+!public/index.html
+!public/leads.json
+!public/custom.geo.json
+!src/
+!package.json
+!package-lock.json 

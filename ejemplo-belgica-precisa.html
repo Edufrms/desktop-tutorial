@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Bélgica - Comextoolbox Dashboard</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>
+    html, body, #map { 
+      margin: 0; 
+      padding: 0; 
+      height: 100%; 
+    }
+    
+    /* Estilos para el tooltip de Bélgica */
+    .belgium-tooltip {
+      background: rgba(42, 157, 143, 0.9);
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .belgium-tooltip::before {
+      border-top-color: rgba(42, 157, 143, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // ========================================
+    // CONFIGURACIÓN DE ESTILOS PARA BÉLGICA
+    // ========================================
+    const BELGIUM_STYLE = {
+      // Sin trazo visible para evitar distracciones
+      stroke: false,
+      // Relleno muy ligero con el color corporativo
+      fillColor: '#2A9D8F',
+      fillOpacity: 0.08,  // Muy transparente para no interferir
+      // Configuración adicional para mejor rendimiento
+      clickTolerance: 3,
+      smoothFactor: 1
+    };
+
+    // ========================================
+    // COORDENADAS PRECISAS DE BÉLGICA (SIN LUXEMBURGO)
+    // ========================================
+    const BELGIUM_COORDINATES = [
+      [51.505, 2.544],  // Costa belga (Knokke-Heist)
+      [51.505, 5.607],  // Norte (frontera con Holanda)
+      [50.501, 5.758],  // Este (frontera con Alemania)
+      [50.128, 5.607],  // Centro-este (Namur)
+      [49.576, 5.782],  // Sur (frontera con Francia)
+      [49.443, 5.897],  // Suroeste (frontera con Francia)
+      [49.529, 5.674],  // Centro-sur
+      [50.128, 5.607],  // Centro (Namur)
+      [51.037, 5.607],  // Centro-norte (Hasselt)
+      [51.475, 4.973],  // Noroeste (Amberes)
+      [51.620, 3.830],  // Oeste (Gante)
+      [51.345, 3.314],  // Noroeste (Brujas)
+      [51.148, 2.544]   // Costa (cierre)
+    ];
+
+    // ========================================
+    // FUNCIÓN PARA CREAR POLÍGONO DE BÉLGICA
+    // ========================================
+    function createBelgiumPolygon(mapInstance) {
+      console.log('🔄 Creando polígono preciso de Bélgica...');
+      
+      // Crear un polígono simple de Bélgica
+      const belgiumPolygon = L.polygon(BELGIUM_COORDINATES, BELGIUM_STYLE);
+      
+      // Añadir tooltip sutil al hacer hover
+      belgiumPolygon.bindTooltip('Bélgica', {
+        permanent: false,
+        direction: 'top',
+        className: 'belgium-tooltip'
+      });
+      
+      // Opcional: hacer clic para información
+      belgiumPolygon.on('click', function() {
+        console.log('🗺️ Clic en Bélgica');
+        L.popup()
+          .setLatLng([50.85, 4.35])
+          .setContent('<strong>Bélgica</strong><br>País del Benelux<br>Capital: Bruselas')
+          .openOn(mapInstance);
+      });
+      
+      // Añadir al mapa
+      belgiumPolygon.addTo(mapInstance);
+      console.log('✅ Polígono de Bélgica añadido al mapa');
+      
+      return belgiumPolygon;
+    }
+
+    // ========================================
+    // INICIALIZACIÓN DEL MAPA
+    // ========================================
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar mapa centrado en Bélgica
+      const map = L.map('map').setView([50.85, 4.35], 7);
+      
+      // Añadir capa de tiles de OpenStreetMap
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      
+      // Crear polígono preciso de Bélgica
+      const belgiumPolygon = createBelgiumPolygon(map);
+      
+      // Añadir marcadores de ejemplo
+      const cities = [
+        { name: 'Bruselas', lat: 50.8503, lon: 4.3517, type: 'Capital' },
+        { name: 'Amberes', lat: 51.2194, lon: 4.4025, type: 'Puerto' },
+        { name: 'Gante', lat: 51.0500, lon: 3.7167, type: 'Ciudad' },
+        { name: 'Brujas', lat: 51.2093, lon: 3.2247, type: 'Turística' },
+        { name: 'Lieja', lat: 50.8503, lon: 5.6889, type: 'Industrial' }
+      ];
+      
+      cities.forEach(city => {
+        L.marker([city.lat, city.lon])
+          .addTo(map)
+          .bindPopup(`<strong>${city.name}</strong><br>${city.type}`)
+          .bindTooltip(city.name);
+      });
+      
+      console.log('✅ Mapa de Bélgica inicializado correctamente');
+    });
+  </script>
+</body>
+</html> 

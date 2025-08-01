@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Estilos para el contenedor principal */
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para el header */
+.header {
+  background: linear-gradient(135deg, #2A9D8F 0%, #264653 100%);
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.header p {
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+/* Estilos para el contenedor del mapa */
+.map-container {
+  flex: 1;
+  position: relative;
+}
+
+/* Estilos para los filtros */
+.filters-container {
+  background: white;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.filters-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.filter-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2A9D8F;
+}
+
+.filter-item label {
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Estilos para los popups personalizados */
+.custom-popup {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.custom-popup h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2A9D8F;
+  font-size: 1.1rem;
+}
+
+.custom-popup p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.custom-popup .lead-type {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.lead-type.feria {
+  background-color: #E9C46A;
+  color: #8B4513;
+}
+
+.lead-type.importador {
+  background-color: #F4A261;
+  color: #8B4513;
+}
+
+.lead-type.distribuidor {
+  background-color: #E76F51;
+  color: white;
+}
+
+.lead-type.ice {
+  background-color: #2A9D8F;
+  color: white;
+}
+
+.custom-popup a {
+  color: #2A9D8F;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.custom-popup a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el tooltip de Bélgica */
+.belgium-tooltip {
+  background: rgba(42, 157, 143, 0.9);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.3rem 0.6rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.belgium-tooltip::before {
+  border-top-color: rgba(42, 157, 143, 0.9);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .filters-container {
+    padding: 0.75rem;
+  }
+  
+  .filter-group {
+    gap: 0.5rem;
+  }
+} 
